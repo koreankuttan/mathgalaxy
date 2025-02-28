@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Leaderboard 🚀</h1>
+    <ul id="leaderboard-list"></ul>
+    <script>
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+        let list = document.getElementById("leaderboard-list");
+        leaderboard.forEach(score => {
+            let li = document.createElement("li");
+            li.innerText = `${score.name} - ${score.score} points`;
+            list.appendChild(li);
+        });
+    </script>
+</body>
+</html>
